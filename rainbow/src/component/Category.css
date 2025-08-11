@@ -1,0 +1,89 @@
+.category-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #0f131e, #1a1f2e);
+}
+
+.category-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #00c6ff;
+  text-shadow: 0 0 8px rgba(0, 198, 255, 0.4);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Fade-up animation for each card */
+.category-card {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: inherit;
+  transform: translateY(40px);
+  opacity: 0;
+  animation: fadeUp 0.8s forwards ease-out;
+}
+
+@keyframes fadeUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hover tilt + pulse */
+.category-card:hover {
+  transform: scale(1.05) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 12px 35px rgba(0, 198, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card__image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light sweep animation */
+.shine {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent
+  );
+  transform: skewX(-25deg);
+}
+
+.category-card:hover .shine {
+  animation: shineMove 1s forwards;
+}
+
+@keyframes shineMove {
+  100% {
+    left: 125%;
+  }
+}
+
+.category-card__title {
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: #141824;
+  color: white;
+}

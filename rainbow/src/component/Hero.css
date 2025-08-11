@@ -1,0 +1,100 @@
+/* Hero.css */
+
+.hero-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(rgba(10, 10, 20, 0.7), rgba(10, 10, 20, 0.7)),
+    url('https://www.pcgamesn.com/wp-content/uploads/2019/02/rainbow-six-siege-glaz.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+/* Removed .hero-overlay, replaced with gradient in background */
+
+
+.hero-content {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  z-index: 2;
+  margin-top: 8rem;
+  margin-bottom: 4rem;
+  padding: 2rem 2vw;
+}
+
+
+.hero-content h1 {
+  font-size: 4vw;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.7);
+}
+
+
+.hero-content p {
+  font-size: 1.5vw;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+
+
+.hero-content button {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  color: #fff;
+  background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.hero-content button:hover {
+  background: linear-gradient(90deg, #0056b3 0%, #007bff 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .hero-content button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-container {
+    min-height: 90vh;
+    padding-top: 3.5rem;
+  }
+  .hero-content {
+    margin-top: 2rem;
+    padding: 1rem 0.5rem;
+  }
+  .hero-content h1 {
+    font-size: 1.3rem;
+  }
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+  .hero-content button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
