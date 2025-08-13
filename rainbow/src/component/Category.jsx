@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // ✅ import Link
 import './Category.css';
 
 const categories = [
   {
     title: 'Deployment',
     image: 'https://th.bing.com/th/id/R.dbc95dbd671122c72efffb939fa6617d?rik=uLKh6DRIPA%2bCMA&pid=ImgRaw&r=0',
-    link: '#deployment',
+    link: '/deployment', // ✅ now a route, not an anchor
   },
   {
     title: 'Best Weapons',
@@ -25,21 +26,41 @@ const Category = () => {
       <h2>Category</h2>
       <div className="category-grid">
         {categories.map((cat, index) => (
-          <a 
-            key={cat.title} 
-            href={cat.link} 
-            className="category-card"
-            style={{ animationDelay: `${index * 0.2}s` }}
-          >
-            <div
-              className="category-card__image"
-              style={{ backgroundImage: `url(${cat.image})` }}
-              aria-label={cat.title}
+          cat.link.startsWith('/') ? (
+            // ✅ Internal route navigation
+            <Link
+              key={cat.title}
+              to={cat.link}
+              className="category-card"
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="shine"></div>
-            </div>
-            <div className="category-card__title">{cat.title}</div>
-          </a>
+              <div
+                className="category-card__image"
+                style={{ backgroundImage: `url(${cat.image})` }}
+                aria-label={cat.title}
+              >
+                <div className="shine"></div>
+              </div>
+              <div className="category-card__title">{cat.title}</div>
+            </Link>
+          ) : (
+            // ✅ Keep normal anchor for in-page scroll
+            <a
+              key={cat.title}
+              href={cat.link}
+              className="category-card"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <div
+                className="category-card__image"
+                style={{ backgroundImage: `url(${cat.image})` }}
+                aria-label={cat.title}
+              >
+                <div className="shine"></div>
+              </div>
+              <div className="category-card__title">{cat.title}</div>
+            </a>
+          )
         ))}
       </div>
     </section>

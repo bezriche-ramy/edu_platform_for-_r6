@@ -1,0 +1,175 @@
+/* Deployment.css */
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,0.3);
+  }
+  50% {
+    box-shadow: 0 8px 30px 0 rgba(247, 202, 24, 0.2);
+  }
+}
+
+.deployment-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 99vw;
+  background: linear-gradient(135deg, #0a0f1c 0%, #1a2332 50%, #232946 100%);
+  color: #fff;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.deployment-hero {
+  width: 100vw;
+  height: 50vh;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.hero-overlay {
+  background: rgba(15, 20, 35, 0.85);
+  color: white;
+  text-align: center;
+  padding: 3rem 4rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(247, 202, 24, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.hero-overlay h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  color: #f7ca18;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.8);
+  text-transform: uppercase;
+}
+
+.hero-overlay p {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  color: #e0e6ed;
+  font-weight: 300;
+  margin-bottom: 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Defender Cards */
+.defender-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  padding: 4rem 3vw;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.defender-card {
+  background: rgba(35, 41, 70, 0.95);
+  color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.3);
+  position: relative;
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 1;
+}
+
+.defender-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  border: 2px solid #f7ca18;
+  box-shadow: 0 15px 40px 0 rgba(247, 202, 24, 0.3);
+  opacity: 1;
+}
+
+.defender-image {
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-bottom: 3px solid #f7ca18;
+}
+
+.defender-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(15,20,35,0.7) 100%);
+  pointer-events: none;
+}
+
+.defender-card h3 {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f7ca18;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  margin: 0;
+}
+
+/* Fullscreen on PC */
+@media (min-width: 1024px) {
+  .deployment-hero {
+    height: 60vh;
+    min-height: 500px;
+  }
+  
+  .defender-grid {
+    padding: 5rem 4vw;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .deployment-hero {
+    height: 40vh;
+    min-height: 300px;
+  }
+  
+  .hero-overlay {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .defender-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+  }
+  
+  .defender-image {
+    height: 180px;
+  }
+}
